@@ -75,4 +75,3 @@ while True:
         n2 = number_two(sign)
         answer = calculation(n1, sign, n2)
     print(f"{n1} {sign} {n2} = {answer}")
-
