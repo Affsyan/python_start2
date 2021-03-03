@@ -8,19 +8,70 @@
 Также она должна сообщать пользователю о невозможности деления на ноль, если он ввел его в качестве делителя.
 """
 
-while True:
-    n1 = int(input("Введите натуральное число: "))
-    if not n1.isdigit():
-        print("Введите натуральное число: ")
-    else:
-        while True:
-            a = input("Введите знак")
-            if a == 0:
-                break
-            else:
-                if a == '+' or a == '-' or a == '*' or a == '/':
-                    n2 = int(input("Введите натуральное число больше 0: "))
-                        if (not n1.isdigit()) or n2 == 0:
 
-                else:
-                    break
+def check_number(number):
+    try:
+        float(number)
+        return False
+    except ValueError:
+        return True
+
+
+def number_one():
+    def_n1 = input("Введите число: ")
+    while True:
+        if check_number(def_n1):
+            def_n1 = input("Введите число: ")
+        else:
+            break
+    return float(def_n1)
+
+
+def symbol():
+    s = input("Введите знак (+ - * /). Для выхода введите 0: ")
+    while True:
+        if s == '0':
+            return 'Exit'
+        else:
+            if s in '+-*/':
+                return s
+            else:
+                s = input("Введите знак (+ - * /). Для выхода введите 0: ")
+
+
+def number_two(sign_def):
+    def_n2 = input("Введите число: ")
+    while True:
+        if def_n2 == '0' and sign_def == '/':
+            print("Невозможно поделить на 0!")
+            def_n2 = input("Введите другое число: ")
+        else:
+            if check_number(def_n2):
+                def_n2 = input("Введите число: ")
+            else:
+                break
+    return float(def_n2)
+
+
+def calculation(def_n1, def_symbol, def_n2):
+    if def_symbol == '+':
+        return def_n1 + def_n2
+    elif def_symbol == '-':
+        return def_n1 - def_n2
+    elif def_symbol == '*':
+        return def_n1 * def_n2
+    else:
+        return def_n1 / def_n2
+
+
+while True:
+    n1 = number_one()
+    sign = symbol()
+    if sign == 'Exit':
+        print("Программа завершена")
+        break
+    else:
+        n2 = number_two(sign)
+        answer = calculation(n1, sign, n2)
+    print(f"{n1} {sign} {n2} = {answer}")
+
