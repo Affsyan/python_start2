@@ -10,7 +10,7 @@ MAX_ITEM = 100
 
 numbers = [random.randint(MIN_ITEM, MAX_ITEM) for _ in range(SIZE)]
 
-print(numbers)
+print(f"Сгенерированный массив: \n{numbers}")
 element_index = 0
 count = 0
 count_max = 0
