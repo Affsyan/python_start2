@@ -1,13 +1,14 @@
 """
 Задание 4 из урока 2.
 Найти сумму n элементов следующего ряда чисел: 1, -0.5, 0.25, -0.125,… Количество элементов (n) вводится с клавиатуры.
+По 10000 повторов от 1 до n с шагом 5
 https://docs.google.com/spreadsheets/d/1z2b2mDUj8vwiH9p359TSL0AmwK9fdVf44H_Zqdv02oc/edit?usp=sharing
 """
 
 import timeit
 import cProfile
 
-n = 500
+N = 500
 
 
 def calculation_rec(def_n_rec):
@@ -73,14 +74,14 @@ def calculation_cycle_sum(def_n_cycle):
 
 
 """
-for i in range(1, n, 5):
+for i in range(1, N, 5):
     print(timeit.timeit('calculation_rec(i)', number=10000, globals=globals()))
     print(timeit.timeit('calculation_cycle(i)', number=10000, globals=globals()))
     print(timeit.timeit('calculation_cycle_sum(i)', number=10000, globals=globals()))
 """
 """
-cProfile.run('calculation_rec(n)')
-cProfile.run('calculation_cycle(n)')
-cProfile.run('calculation_cycle_sum(n)')
+cProfile.run('calculation_rec(N)')
+cProfile.run('calculation_cycle(N)')
+cProfile.run('calculation_cycle_sum(N)')
 """
 
