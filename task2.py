@@ -44,9 +44,6 @@ for i in range(len(n_1)):
     n_1[i] = number.get(n_1[i])
     n_2[i] = number.get(n_2[i])
 
-
 n1_n2_sum = deque([x + y for x, y in zip(n_1, n_2)])
 
 print("".join(calculation(n1_n2_sum)))
-
-
