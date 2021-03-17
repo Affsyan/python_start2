@@ -8,7 +8,6 @@ from sys import getsizeof
 SIZE = 10
 MIN_ITEM = 0
 MAX_ITEM = 100
-memory_sum = []
 
 numbers = [random.randint(MIN_ITEM, MAX_ITEM) for _ in range(SIZE)]
 
