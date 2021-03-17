@@ -35,5 +35,5 @@ numbers[max_number_index], numbers[min_number_index] = numbers[min_number_index]
 print(f"После смены мест максимального и минимального элемента : \n{numbers}")
 
 memory_sum = [getsizeof(SIZE), getsizeof(MIN_ITEM), getsizeof(MAX_ITEM), getsizeof(max_number), getsizeof(min_number),
-              getsizeof(min_number_index), getsizeof(max_number_index)]
+              getsizeof(min_number_index), getsizeof(max_number_index), getsizeof(numbers)]
 print(f'Под переменные будет выделенно {sum(memory_sum)} памяти')
