@@ -17,15 +17,35 @@ def sort(array):
     return array
 
 
+def median(array):
+
+    min_number = array[0]
+    max_number = array[0]
+
+    for i in range(1, len(array)):
+        if max_number < array[i]:
+            max_number = array[i]
+        if min_number > array[i]:
+            min_number = array[i]
+    if len(array) == 1:
+        return array
+    array.remove(max_number)
+    array.remove(min_number)
+    median(array)
+    if len(array) == 1:
+        return array[0]
+
+
 number = 5
 MIN_ITEM = 0
 MAX_ITEM = 1000
 
 numbers = [random.randrange(MIN_ITEM, MAX_ITEM) for _ in range(2*number + 1)]
-numbers1 = [random.randrange(MIN_ITEM, MAX_ITEM) for _ in range(2*number + 1)]
+numbers1 = numbers.copy()
+
 
 print(f"Сгенерированный массив {numbers}")
 sort_array = sort(numbers)
 print(f"Отсортированный массив {sort_array}")
-print(f"Медиана с сортировкой: {numbers[(len(sort_array))//2]}")
-
+print(f"Медиана с сортировкой : {numbers[(len(sort_array))//2]}")
+print(f"Медиана без сортировки: {median(numbers1)}")
