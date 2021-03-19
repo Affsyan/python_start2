@@ -17,26 +17,15 @@ def sort(array):
     return array
 
 
-def median(array):
-    count = len(array)//2
-    median_ = 0
-    for i in range(len(array)):
-        if array[i+1] > array[i]:
-            median_ = array[i+1]
-            count -= 1
-            if count == 0:
-                break
-    return median_
-
-
 number = 5
 MIN_ITEM = 0
 MAX_ITEM = 1000
 
 numbers = [random.randrange(MIN_ITEM, MAX_ITEM) for _ in range(2*number + 1)]
+numbers1 = [random.randrange(MIN_ITEM, MAX_ITEM) for _ in range(2*number + 1)]
 
 print(f"Сгенерированный массив {numbers}")
 sort_array = sort(numbers)
 print(f"Отсортированный массив {sort_array}")
 print(f"Медиана с сортировкой: {numbers[(len(sort_array))//2]}")
-print(f"Медиана без сортировки: {median(numbers)}")
+
